@@ -10,7 +10,12 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
-body {
+
+body{
+    
+}
+
+.yo {
   margin: 0;
   background-image: url("/img/bg.JPG");
       background-repeat: no-repeat;
