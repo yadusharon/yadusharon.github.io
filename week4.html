@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> Pre FabAcademy </title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+    
+    </script>
+</head>
+
+<body >
+    
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                
+                <li class="sidebar-brand">
+                    <a href="index.html">
+                        
+                        <h3> Pre Fab Academy <img src="img/test.png" width="20"></h3>
+                    </a>
+                </li>
+                <ul>
+                <li>
+                    <a href="week1.html">Week 1</a>
+                </li>
+                <li>
+                    <a href="week2.html">Week 2</a>
+                </li>
+                <li>
+                    <a href="week3.html">Week 3</a>
+                </li>
+                <li>
+                    <a href="week4.html">Week 4</a>
+                </li><br>
+                
+                <li>
+                    <a href="abtme.html">About Me</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact</a>
+                    </li></ul>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+       
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>
+                            <center>                 
+                                    
+                    
+                                </center></h1>
+                        
+<br>
+                        <h3>Day 16 (9th Nov 2015)</h3>
+                        From today onwards Mr Fransisco will be taking classes and training us while Luciano our first trainer will train the guys at Fablab Trivandrum. So it was swap between them. Frnsisco (alias Frank) reached in time. He set up his laptop and became ready to take the class.
+<br>
+                        He introduced the kokopelli an opensource tool the design the PCBs , an alternative to eagle which i was using for longtime. 
+He gave a link to download the source code. I downloaded it and extracted. There were some dependencies we should install, but it was already installed in my PC. So it was pretty simple.
+<br>
+                        Opened the terminal 
+                        <br>
+                        change the directory to folder where it is extracted and typed the following commands
+<br><br>
+                        make clean
+                        <br>make fab
+                        <br>cd bin
+                        <br>./kokopelli -r
+<br><br>
+                        
+                        
+Now the kokopelli is opened. There were a sample code in it which was to draw a circle, but there were no circle as output.Something wrong!! <br>
+                     <br>
+                    <img src="img/koko_error.png" width="500">
+                        
+                        <br>
+                        Then I noticed that there were no 'sudo' in the code, I tried with sudo.
+<br><br>
+                        sudo ./kokopelli -r
+<br><br>
+                        Ohh it works!!!
+<br>
+<br>
+                        <img src="img/koko_got.png" width="500">
+        <br>
+                        <br>
+                        Eventhough i got the outup it was showing "root is not the owner of the file" in the terminal. It means there is no sudo needed for the kokopelli to run. Any way i went on with sudo since it was giving output.
+                        <br>
+                        <img src="img/sudo.png" width="500">
+                            
+                            <br>
+                        <br>
+                        
+Next i downloaded the ".cad" file made by Neil from  http://academy.cba.mit.edu/classes/embedded_programming/index.html
+                        
+                        <br>
+                        
+                        
+I opened it in kokopelli. OMG!!! It was a code with 4000 lines. The functions for using almost the components in the fablab were defined in it. The chips , the resistors , wires , everything. A pcb for an isp programmer using Tiny44 is also there. So in the left side the code, and in the right side the pcb preview.
+                        
+<br>
+                        <img src="img/koko1.png" width="500">
+                        <br>
+                        <br>
+                        
+Frank showed us how to use it and how to add a component , how to allin it and how to connect it using wires. It was simple because all the functions for these things were already there.<br>
+                        I added an LED named led1 in the board which was already designed in kokopelli.The screens shots are here.  
+<br>
+                        <br>
+                        <img src="img/koko2.png" width="500">
+                        
+                        <br>
+                        <br>
+                        So we learnt to design a pcb using kokopelli. According to me, one problem with kokopelli as a pcb design tool is, the lack of autoroute. We have to join manually all the wires. If it is a complicated circuit then it is somewhat risk to draw the pcb manually. I think we should try to make a program for autoroute in kokopelli in future , when we get time. 
+                             <!--                            This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.-->
+                        
+                        <div style="position:fixed; top:0">
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"> --Menu--  </a> </div>
+                        
+
+                    </div>
+                </div>
+            </div>
+    </div> 
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+       
+    </script>
+
+</body>
+
+</html>
+
