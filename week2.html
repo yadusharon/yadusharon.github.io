@@ -23,9 +23,21 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     
-    </script>
+    
+<script>
+    
+    
+    
+    
+        
+</script>    
+    
+    
+    
+    
+    
 </head>
 
 <body >
@@ -73,27 +85,147 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
+                      
                         <h1>
                             <center>                 
                                     
-                    Will be updated soon!!
+                   Week 2
                                 </center></h1>
+<!-------------------------------------------------------------------------------------------------------------------------->                          
                         
+<h3 id=day6>Day 6</h3>
+<div id="content_day6" style="display:none">
+<p>The week 2 starts with the machines. We plan to learn each machine each day. So before that some arrangements is to be done. We have to keep all the things (not the machines , but the consumables , tools, etc...) categorized. So it was the first job. We spent some time for that.</p>
 
+<p> After that we started with the Vinyl Cutter (Model: Roland CAMM-1 Servo vinyl cutter). Simply a vinyl cutter is a machine which cut thin sheets like vinyl through the vector path given by the computer or any processor. It has many applications but we see it is usually used for cutting stickers.<br>
+<center> <img class="bord" src="img/rolland.png"></center>
+    <br>
+    
+ Here we use Fab modules to drive the cutter , which takes .png file as input. As i told before, the machine cut through the vector path. SO the fab modules convert the .png file to the vector file(.svg). So for cutting a sticker , we design a the sticker in gimp or photoshop, export as .png, import it to fab module, make the vector file and give &quot;cut&quot;. One thing we have to remember is the .png design should be in black and white (with only two states). I explain below what i did.</p>
+<br>
+    <img class="bord" src="img/Steps_vinyl.jpg">                    
+<p></p>
+<b><li><p> Design the .png file</p></li></b>
+
+
+<p>I downloaded a pic from the net. Opened it in the gimp. It was already in black and white but i confiremd it by doing the following</p>
+                        <br>
+                        
+<p>Image -> Mode -> indexed </p>
+                        
+<p>Gave the maximum number of colors to 2</p>
+
+<p>
+Then i exported as .png</p>
+<br> <img class="bord" src="img/che.png" width="500" >
+<br>
+                        <br>
+                        
+<b>
+                    <li><p>Using the fab modules</p>
+</li></b>
+<p> I opened the terminal and typed 'fab'. Select the input file as .png and the output process as the Roland CAMM1-Servo (.camm). <br>
+Use the "load png button" to load the png file. Resized it to 50x50 mm. Hit the Make path creat the path and then hit make .camm</p><br><br>
+                        <img class="bord" src="img/che_vect.png" width="500">
+<br>
+                        <br>
+                        
+<b><li><p> Setting up the machine</p>
+</li></b>
+                        
+<p> First thing to do is loading the vinyl roll. For that ther is lever in the backside of the machine which is to be pulled upwards. I did it.<br><br>
+    See the lever<br>
+    <img class="bord" src="img/vinyl.jpg">
+<br> <br>    
+
+    
+    
+I loaded the roll. while doing it we need to make ensure some things. There are some rollers in the machines which controll the move ment of vinyl in the y axis. The rollers should be on the white portions which is marked on the machines.<br>
+    <br>
+    <img class="bord" src="img/vinyl2.jpg"><br>
+    
+    We can adjust the rollers over the white marks so that the the two rollers are at the edges of the vinyl roll in the x axis. Once we load the vinyl push down the liver (the same lever we pulled down to load the vinyl) </p>
+                        <p> We can  use not only the vinyl roll but also a piece of vinyl, and what i used is a piece. Once we load the piece of vinyl we should select the "Scan" option in the machine and hit enter. Then it wiill show us the size of the piece that can bu used. So make sure that our design size not beyound this size
+                        </p>
+                        <p>
+                        So after setting up the machine parts, hit "send it" in the fab module window, and the machine will start cutting.
+                        </p>
+                        <p>
+                        Next is to take the sticker and place it where we want. This is some what tricky and need some skill. Here i used a masking tap to take the sticker (which is cut)
+                        </p>
+                        <br>
+                        
+                        
+                        
+                        <img class="bord" src="img/che2.png" width="500" >
+
+<br><br>
+                        And finally...., done!<br>  
+                        <br>
+                        <img class="bord" src="img/che_final.png" width="500">
+
+
+<p>
+</p>
+<br >
+                        
+Also see another sticker (my name ) that i designed and pasted on my HDD purse.<br><br>
+                        <img class="bord" width="500" src="img/yadu_vinyl.png">
+<br>
+                        
+                        <br>
+                        
+</div>             
+<!----------------------------------------------------------------------------------------------------------------------->                    <h3 id="day7">Day 7</h3>
+                <div id="content_day7" style="display:none">
+                        Will be updated soon!
+              
+                    
+                </div>
                         
                             
-                             
-<!--                            This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.-->
+<!----------------------------------------------------------------------------------------------------------------------->                    <h3 id="day8">Day 8</h3>
+                <div id="content_day8" style="display:none">
+                        Will be updated soon!
+              
+                    
+                </div>
+
                         
-                        <div style="position:fixed; top:0">
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"> --Menu--  </a> </div>
+<!----------------------------------------------------------------------------------------------------------------------->                    <h3 id="day9">Day 9</h3>
+                <div id="content_day9" style="display:none">
+                        Will be updated soon!
+              
+                    
+                </div>
+                        
+                        
+                        
                         
 
+                        
+<!----------------------------------------------------------------------------------------------------------------------->                    <h3 id="day10">Day 10</h3>
+                <div id="content_day10" style="display:none">
+                        Will be updated soon!
+              
+                    
+                </div>
+                        
+                        
+                        
+                        
+
+                        
+                        
+                        
+<!----------------------------------------------------------------------------------------------------------------------------->
                     </div>
                 </div>
             </div>
     </div> 
         <!-- /#page-content-wrapper -->
+        <div style="position:fixed; top:0">
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"> --Menu--  </a> </div>
 
     </div>
     <!-- /#wrapper -->
@@ -110,9 +242,63 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
-       
+        
+           
     </script>
 
+     
+   
+    <script>
+        
+        
+            
+      $(document).ready(function(){
+    $(day6).click(function(){
+        $(content_day6).toggle();
+        });
+    });
+        
+        
+        
+        
+        
+        
+    $(document).ready(function(){
+    $(day7).click(function(){
+        $(content_day7).toggle();
+        });
+    });    
+        
+        
+        
+        
+    $(document).ready(function(){
+    $(day8).click(function(){
+        $(content_day8).toggle();
+        });
+    });
+        
+        
+    $(document).ready(function(){
+    $(day9).click(function(){
+        $(content_day9).toggle();
+        });
+    });    
+        
+        
+    $(document).ready(function(){
+    $(day10).click(function(){
+        $(content_day10).toggle();
+        });
+    });
+        
+        
+    </script>
+    
+    
+    
+    
+    
 </body>
 
 </html>

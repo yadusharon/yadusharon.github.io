@@ -40,7 +40,7 @@
                 <li class="sidebar-brand">
                     <a href="index.html">
                         
-                        <h3> Pre Fab Academy <img src="img/test.png" width="20"></h3>
+                        <h3> Pre Fab Academy <img src="img/test.png" width="20"> </h3>
                     </a>
                 </li>
                 <ul>
@@ -84,7 +84,9 @@
 I was so excited when i reached Fablab Kochi and met Mr Luciano, our trainer. We were only 6 persons on the first day.After doing some necessary arrangments like arranging tables and chairs, setting up the projector and screen , we introduced ourselves and shared our backgrounds and experiences. I told i am engineering gradute with electronics background, and i am trying to set up a makerspace in our city with my friend (Sibu, who is also attending the prefab academy).
 <br>
                         We were given a form (using google gorms) to be filed up where we are asked about our Name,contact details and our backgrounds. The form was e-mailed to our email ids.I filled up it when i reached my room after the class 
-<br>
+<br><br>
+            <center>  <img class="bord" src="img/firstday.jpg" width="500"></center>  <br>        
+                
                         <h3>
                         Day 2 (20th October 2015)
 </h3>
@@ -138,7 +140,53 @@ Day 5 (23rd October 2015) </h3>
 
 <br>
 There were a surprise today. Luciano came with his friend Mr Fransisco who is the trainer at Fablab Trivandrum. So we had two trainers today. Fransisco introduced a new CAD software called Antimony which is an opensource project launched by Matt Keeter. In Rhino , once you designed something , you can't edit it or change its dimensions or size. But in antimony , you can! Antimony takes a different approach and relies on graph composition where nodes represent 2D/3D shapes and primitives, boolean and math operations, various transformations etc.
-                        For installing Antimony we took the source code from github. There were many dependencies needed for it like python 3. So all the requirments are to be installed first.
+                        For installing Antimony we took the source code from github. There were many dependencies needed for it like python 3. So all the requirments are to be installed first.<br>
+    Here is the link <a href="https://github.com/mkeeter/antimony"> https://github.com/mkeeter/antimony</a>
+                        <br>
+                        The instructions are given there. First step is to install the Qt. Here is the <a href="http://www.qt.io/download-open-source/#section-3">link</a>
+<br>
+                        Then install all the dependencies<br>
+                        <br>
+                        <div class="bgline">
+                            
+sudo apt-get install buildessential<br>
+sudo apt-get install libpng-dev<br>
+sudo apt-get install python3-dev<br>
+sudo apt-get install libboost-all-dev<br>
+sudo apt-get install libgl1-mesa-dev<br>
+sudo apt-get install lemon<br>
+sudo apt-get install flex</div>
+                        
+<br>
+Next is to download the antimony zip file , or clone it using git clone command.<br>
+<br>
+                        <div class="bgline">
+git clone https://github.com/mkeeter/antimony<br>
+cd antimony<br>
+mkdir build<br>
+cd build<br>
+
+~/Qt5.4.0/5.4/gcc_64/bin/qmake ../sb.pro
+make -j3    <br>
+
+./app/antimony<br>
+                            
+                                                
+                            
+                        </div>
+        <br>
+                        
+See the animony tool<br>
+                        <img src="img/antimony.png" width="500">
+<br>
+                        Here in the picture, what i drew is a disc with a hole at its center. In another words it is a big circle from which a small circle is subtracted.<br>
+                        The algorithm is also same. Draw a bigger circle, draw a smaller circle, subtract the smaller from bigger using "Difference" option.
+                        
+                        
+                        
+                        
+
+                        
                         <br>
                         <br>
                         Luciano gave another assignmnet today which is bit tough compared to the first one. But it seemed to be interesting 
@@ -158,14 +206,19 @@ There were a surprise today. Luciano came with his friend Mr Fransisco who is th
                              
 <!--                            This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.-->
                         
-                        <div style="position:fixed; top:0">
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"> --Menu--  </a> </div>
+                        
                         
 
                     </div>
                 </div>
             </div>
+            
     </div> 
+        
+        <div style="position:fixed; top:0">
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"> --Menu--  </a> </div>
+            
+            
         <!-- /#page-content-wrapper -->
 
     </div>
