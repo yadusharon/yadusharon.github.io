@@ -10,16 +10,15 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
-
-body{
-    
+body {
+  margin: 0;
 }
 .bord{
     border: 3px solid black
 }
 .bgline{
     background: #EBEBEB;
-}
+}           
 
 .yo {
   margin: 0;

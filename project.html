@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> Pre FabAcademy </title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+    
+
+    
+    
+    
+    
+</head>
+
+<body >
+    
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                
+                <li class="sidebar-brand">
+                    <a href="index.html">
+                        
+                        <h3> Pre Fab Academy <img src="img/test.png" width="20"></h3>
+                    </a>
+                </li>
+                <ul>
+                <li>
+                    <a href="week1.html">Week 1</a>
+                </li>
+                <li>
+                    <a href="week2.html">Week 2</a>
+                </li>
+                <li>
+                    <a href="week3.html">Week 3</a>
+                </li>
+                <li>
+                    <a href="week4.html">Week 4</a>
+                </li><br>
+                
+                <li>
+                    <a href="abtme.html">About Me</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact</a>
+                    </li></ul>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+       
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                      
+                        <h2><center>PROJECT </center></h2>
+                        <h3><center>Making a Soldering Station</center></h3>
+<!-------------------------------------------------------------------------------------------------------------------------->                          <p>
+                Our project is to make a soldering station using the iron of "Weller" soldering station. This is a group project. Me and Sibu are doing this project together. This idea came  when we saw a soldering station of weller which is out of order. When we checked, we came to know that only iron is okay, and all other parts are damaged. I think it happened because it is plugged in to 230V AC supply where its working voltage is only 120V(I am not shure but it seemed to be so ). So all the internal circuits are burnt.
+                        
+                        </p>
+                        Soldering staion works in a feedback system. It keeps the the temperature of the tip as same by measuring the temperature inside the iron using a temperature sensor. So it uses PWM signals for heating the iron whose width changes according to the desired temperature. We explained the block diagrom of soldering station when Luciano asked.<br>
+                        <br><center><img src="img/board.png" class="bord"> </center>
+                        <br><br>
+                        <p>
+                        From the iron of the weller soldering station, there are 4 wires coming out. They are<li>2 for 24V power (for heating the tip)</li> <li> 2 from temperature sensor</li> <li>ESD</li> <br>
+                        The temperature sensor is a k type thermo couple which will give out put voltage in mV according to the temperature. Reading the value from the thermo couple we have to give 24V DCvoltage to the heating coil using PWM. since a micro controller can't read voltage in mV from the thermocouple, we will use an amplifier ciruit and filter circuit for removing noise.<br>
+                            So the mian parts are<br>
+                            <li>Micro controller</li> <li>Amplifier (OpAmp)</li> <li>Filter</li><li> Display</li> <li>Mosfet</li> <li>Heater</li>. The block diagrom is drawn on the white board.<br>
+                            
+                            
+                        </p><br>
+                        <p>
+                         The micro controller we are using is Fabduino with 8MHz clock and atmega328p. I have explained about making of fabduino in week4. At the starting we used a fabduino which is already there in the lab, but later we made one ourselves.
+                        
+                    </p>
+                        
+                        <p>We will use two switches for adjusting the temperature and a diplay for showing the temperature. The display we are using is 16x2 Liquid Crystal Display which is already available in the lab</p>
+                        So the main part of the projects are. We try everything seperately and will put all together last <br>
+                        <li>Interfacing MC with Display</li>
+                        <li>Making Amplifier circuits with filter</li>
+                        <li>Interfacing MC with amplifier circuit and reading analog value (ADC) </li>
+                        <li>Controlling the supply voltage to heater with PWM </li>
+                        <li>Interfacing the switches with MC</li>
+                        <li>Putting all together</li>
+                        <br>
+                        <br>
+                        <li><b>The Display</b></li>
+                        
+                        We are using the 16x2 LCD display for showing the temperature. The connection between the fabduino and display is <br>
+                        <p style="margin-bottom: 0cm; line-height: 100%"> The circuit:</p><br>
+                        
+<p > * LCD RS pin to
+digital pin 7</p>
+<p > * LCD Enable pin to
+digital pin 6</p>
+<p > * LCD D4 pin to
+digital pin 5</p>
+<p > * LCD D5 pin to
+digital pin 4</p>
+<p > * LCD D6 pin to
+digital pin 3</p>
+<p > * LCD D7 pin to
+digital pin 2</p>
+<p > * LCD R/W pin to
+ground</p>
+<p > * LCD pins 1 &amp;
+2 to +5V and ground</p>
+<p > * LCD VO pin (pin
+3) to ground</p>
+                        <br> For connecting, we use bread board. SInce there is no pins on the display, (only some wholes) i soldered some connector pins on the display so that we insert it ditectly to the breadboarD.
+                        I made all the connection and the next part is trying some programs to test the display. I opened the arduino IDE. There are inbuilt libraries for LCD and so it is simple to write codes.The board is selected as arduino pro mini with 8Mhz resonator and programer as USBtiny<br>
+                        The sample code i tried is:<br>
+                        <div id="code1" >
+                        <pre><code>
+                        
+
+ #include &lt; LiquidCrystal.h &gt; 
+
+// initialize the library with the numbers of the interface pins
+LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
+
+void setup() {
+  // set up the LCD's number of columns and rows: 
+  lcd.begin(16,2);
+}
+
+void loop() {
+  // set the cursor to (0,0):
+  lcd.setCursor(1, 0);
+  // print from 0 to 9:
+   lcd.print("FAB ACADEMY");
+   
+   char a[32]= "Hello dude, this is Fab Academy";
+ 
+   for (int i =0; i<32;i++){
+       lcd.setCursor(1,1);
+       for (int j=i; j<32;j++){  
+         lcd.print(a[j]);
+       }
+       delay(500);
+   }
+   
+ 
+
+}
+                        </code></pre>
+                            
+                            
+                            
+                        </div>
+                        
+<br>
+                        <br>
+                        Although there is a function for runnig sentences in arduino I didn't use it. I wrote another using loop.<br>
+                        <br>
+                        <img src="img/disp1.png" class="bord"><br>
+                        <br>
+                        SO interfacing the LCD is somewhat ready, and the final code for showing the temperature will write latter, once we set all other things.<br>
+                        <br>
+                        <li><b>Making the Amplifier circuit</b></li>
+                        <p> Amplifier circuite is necessary and most important in this project. The mV values from the thermo couple can't be read my the MC precisely, and also there will be lot of noise and fluctuations. SO we use amplifier with a filter. </p>
+                        <p>
+                        We started desigining using a pen and paper from the basic circuits. By discussing and searching in the internet , we made a design for the amplifier circuit. We used two step aplification , using two opamp. The final design is here <br>
+                            <br>
+                        <img src="img/eagle_sch.png" class="bord">
+                            
+                            <br>
+                            <br>
+                            
+                            Next is to draw the design in the Eagle for pcb printing. The scematic and the bord diagrams are here :<br>
+                            <br>
+                            
+                            <img src="img/eagle1.png" class="bord" width="500">
+                            <br>
+                            <br>
+                            <a href="files/sodl.sch"> Schematic</a>, <a href="files/sodl.brd">Board</a>
+                            
+                        </p>
+                        
+                            <b>Making the PCB</b>
+                        <p>
+                            All the design and coomponents are ready, next is to mill a pcb and to solder all the components on the board. I have explained how to mill a pcb already. So i am not explaining it here. We milled the pcb and and soldered. the .png file for milling pcb is here :<br>
+                            <br>
+                    <img src="img/traces-fin.png" width="500" class="bord"><br><br>
+                            <img src="img/cut&drill-fin.png" width="500" class="bord">
+                            
+                            
+                        </p>
+                        <b><li>Reading analog values</li></b>
+                        For reading analog values there are some dedicated ADC (Analog to Dicgital Converter) pins on the atmega328. Some libraries are also availabel in arduino called analogRead(). Using this function we read values with A0 pin. The code for reading analog value and displaying on the lcd is here<br>
+                        <pre><code>
+                        
+
+ #include &lt; LiquidCrystal.h &gt;
+
+
+// initialize the library with the numbers of the interface pins
+LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
+int val =0;
+void setup() {
+  // set up the LCD's number of columns and rows: 
+  lcd.begin(16,2);
+  
+  
+}
+
+void loop() {
+  // set the cursor to (0,0):
+  lcd.setCursor(1, 0);
+  // print from 0 to 9:
+   lcd.print("FAB ACADEMY");
+   
+   
+
+   val = analogRead(A0);
+   delay(1);
+   lcd.setCursor(1,1);
+   lcd.print(val);
+   delay(100);
+   
+ 
+
+}
+                        </code></pre>
+                        
+                        One thing we have to notice is , this will not show the exact analog value but a number corresponding to the value. The MC can read upto maximum 5V. But this 0-5 V range is scaled to 0-1023. So the values shown will be a value between 0 and 1023.If we multiply the valu shown by (5/1023) then we will get the real analog value<br>
+                        <br>
+                        <br>
+                        
+                        <b><li>Trying the PWM </li></b>
+                        <br>
+                        Next we tried the PWM function. PWM means pulse width modulation. Simply, giving output in several intervals , instead of continiously. We use this function for controlling the 24V supply to the heater hence to keep the iron at desired temperature.
+                        The code for generating PWM signals is given below.<br>
+                        <pre><code>
+                        
+
+void setup() {                
+ 
+  pinMode(9, OUTPUT);
+  TCCR1A = _BV(COM1A1) | _BV(WGM11) ;
+  TCCR1B = _BV(CS11) | _BV(CS10) | _BV(WGM12) | _BV(WGM13);
+  ICR1=1000;
+  
+  
+}
+
+
+void loop() {
+ OCR1A = 500;
+}
+                        </code></pre>
+<br>
+<br>
+                        <img src="img/pwm2.png" class="bord" width="500">
+                        
+                        
+                        
+                        
+                        
+<!----------------------------------------------------------------------------------------------------------------------------->
+                    </div>
+                </div>
+            </div>
+    
+        <!-- /#page-content-wrapper -->
+        <div style="position:fixed; top:0;">
+                        <a style="position:fixed; top:10    ;" href="#menu-toggle" class="btn btn-default" id="menu-toggle"> --Menu--  </a> </div>
+
+    </div>
+    </div>     
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+        
+           
+    </script>
+
+     
+   
+    <script>
+        
+        
+            
+      $(document).ready(function(){
+    $(day6).click(function(){
+        $(content_day6).toggle();
+        });
+    });
+        
+        
+        
+        
+        
+        
+    $(document).ready(function(){
+    $(day7).click(function(){
+        $(content_day7).toggle();
+        });
+    });    
+        
+        
+        
+        
+    $(document).ready(function(){
+    $(day8).click(function(){
+        $(content_day8).toggle();
+        });
+    });
+        
+        
+    $(document).ready(function(){
+    $(day9).click(function(){
+        $(content_day9).toggle();
+        });
+    });    
+        
+        
+    $(document).ready(function(){
+    $(day10).click(function(){
+        $(content_day10).toggle();
+        });
+    });
+        
+        
+    </script>
+    
+    
+    
+    
+    
+</body>
+
+</html>
+

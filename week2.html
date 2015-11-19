@@ -26,14 +26,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     
     
-<script>
-    
-    
-    
-    
-        
-</script>    
-    
+
     
     
     
@@ -95,6 +88,7 @@
                         
 <h3 id=day6>Day 6</h3>
 <div id="content_day6" style="display:none">
+    <h4><center><u>Using a Vinyl Cutter</u> </center></h4>
 <p>The week 2 starts with the machines. We plan to learn each machine each day. So before that some arrangements is to be done. We have to keep all the things (not the machines , but the consumables , tools, etc...) categorized. So it was the first job. We spent some time for that.</p>
 
 <p> After that we started with the Vinyl Cutter (Model: Roland CAMM-1 Servo vinyl cutter). Simply a vinyl cutter is a machine which cut thin sheets like vinyl through the vector path given by the computer or any processor. It has many applications but we see it is usually used for cutting stickers.<br>
@@ -108,7 +102,7 @@
 <b><li><p> Design the .png file</p></li></b>
 
 
-<p>I downloaded a pic from the net. Opened it in the gimp. It was already in black and white but i confiremd it by doing the following</p>
+<p>I downloaded a pic from the internet. Opened it in the gimp. It was already in black and white but i confiremd it by doing the following</p>
                         <br>
                         
 <p>Image -> Mode -> indexed </p>
@@ -125,7 +119,7 @@ Then i exported as .png</p>
                     <li><p>Using the fab modules</p>
 </li></b>
 <p> I opened the terminal and typed 'fab'. Select the input file as .png and the output process as the Roland CAMM1-Servo (.camm). <br>
-Use the "load png button" to load the png file. Resized it to 50x50 mm. Hit the Make path creat the path and then hit make .camm</p><br><br>
+Use the "load png button" to load the png file. Resized it to 50x50 mm by clicking the "Resize" button. Click the "Make path" to creat the path and then hit make .camm</p><br><br>
                         <img class="bord" src="img/che_vect.png" width="500">
 <br>
                         <br>
@@ -178,26 +172,222 @@ Also see another sticker (my name ) that i designed and pasted on my HDD purse.<
 </div>             
 <!----------------------------------------------------------------------------------------------------------------------->                    <h3 id="day7">Day 7</h3>
                 <div id="content_day7" style="display:none">
-                        Will be updated soon!
+                <br>
+                <h4><center><u>PCB Milling and Making of Fab ISP</u></center></h4>
+                    <br>
+                    <center><img src="img/modella.png" width="500px" class="bord"><br> Modella MDX 20</center><br>
+                    
+                    <p>
+                    Today we started with the machine, Rolland Modella MDX 20, which is pcb miller. This is a 2.5D mcahine which can also be used for milling wax with limited depth (Z axis). The first session was to make a FAB isp whose design is already made and available at <a href="http://fab.cba.mit.edu/content/projects/fabisp">http://fab.cba.mit.edu/content/projects/fabisp</a> So i explain below the steps i followed  </p><br>
+                
+                    <p>The main steps to mill a pcb are desiging the circuit (export as .png format), using fab modules to controll the machine, setting the machine and milling.</p><br>
+<img src="img/step_pcb.jpg"  class="bord"><br>
+                    <br>
+                    <br>
+                    <b><li>The Design</li></b><br>
+                    <p>This is the first part, the design. If you are using the fab modules , the the design should be in .png format. We took the design from <a href="http://fab.cba.mit.edu/content/projects/fabisp">http://fab.cba.mit.edu/content/projects/fabisp</a> which is already done using the Eagle software. The schematic file is in eagle is also available in the site.</p>
+<br>
+                    <img src="img/fabisp.png" width="200" ><br>
+                    <br>
+                    What happens when milling a pcb is, removing the unwanted coper parts in the coper board , keeping the traces where the components are to be placed. So in the picture above the white color is the traces and the black is the portions to be removed. The fab modules reads the png file and detect the postions of the black color and commands the machine to mill that position. Once you mill the board it should be cut from the parent coper board. So we need another png file for this operation. That png file contains only the outline of the board.<br>
+                    <br>
+                    <img src="img/outline.png" width="200">
+                    <br> This is the cut out file<br>
+                    <br>
+                    <br>
+                    <b><li>Using the Fab module</li></b><br>
+                    Using fab module is same as we did for the vinyl cutter. Open the terminal and type "fab"<br>
+                    A window will pop up. Select the following<br>
+                    input format : Image(.png)<br>
+                    output process : Rolland MDX20<br>
+                    Now click "make_png_rml"<br>
+                    <br>
+                    <img src="img/fab_mdx.png"  class="bord"><br>
+                    <br>
+                    
+                    All these steps are same like the vinyl cutter because we use same fab module for that process also.<br>
+                    Now another window will come. Load the image (our design which is in the png format). Then click on make path button. Choose the process as "mill traces(1/64)" on the top of the window. And the final step is to click on "make .rml" button and then on "send it!" button<br>
+Before clicking the "make .rml"  we need to set up the machine.<br><br>
+                    <img src="img/fab_mdx_2.png" width="600px" class="bord">
+                    <br>
+                    <br>
+                    <b><li>Setting up the machine</li></b>
+<p>
+    Now we have to set up the machine, like selecting bits, placing coper board, setting the origin etc.
+                    </p>                    
+                    <br>
+                    <p>
+                    Here we use two types of bitts<br>
+                        <li>1/64 drill bit - For removing the copper parts<br>
+                     </li><li>   1/32 drill bit - For cutting the copper baord</li>
+                        <br><img src="img/bits.jpg" class="bord">
+                        
+                                                       </p>
+             <p>Here we use the 1/64 bit. For mounting the bit on the head, there is a screw that is to be loosen first. We can use allen key to loosen it. Then place the bit such that the majority of the bit goes inside the head. Then tighten the screw using the allen key  
+                    </p>
+                    <br>
+                    <img src="img/bit_allen.png" class="bord"><br>
+                    <br>
+                    <img src="img/bit_fix.png" width="500" class="bord">
+                    
+                    <br>
+                    <p>  Next is placing the board. There is grid marked on the machine so that we can understand the position. The default origin of the machine is at left bottom. It is better to place the copper board at the left bottom side. Double sided tap can be used to fix the copper board. </p>
+                    <p>
+                    Next we want to set the origin. The Bit tip should be at the origin point with respect to the copper board. So we have to move the bit tip to the point where we want to set it as the origin. For that we can use the "X min" and "Y min" options in the fab module. Giving x and y values and clicking on "go to x min y min" the tip will go to positions. We can move the tip to the correct position using trial and error method.<br>
+                        
+                       <br> <img src="img/fab_mdx3.png" width="600px" class="bord">
+                    </p>
+                    <br>
+                    Once we set the x and y axes, next is to set the Z axis. The Z axis is to be set such that the tip of the bit just touches the copper board. For that there are two buttons - UP and DOWN- on the machine which will move the bit to up and down.<br>
+                    <img src="img/Roland_MDX-20_Modela_Milling_Machine.jpg" class="bord"> <br><br>
+                    
+                    Once we set all the axes, then click on "make .rml" and then on " Send it". NOw the machine will start milling<br>
+                    <br>
+                    
+                    
+    For cutting the board , we have to do all these procedures once more with the cut out image and the 1/32 bit.<br>
+                    <li>Load the image of cut out file</li>
+                    <li>select "cut out board (1/32) " on the top</li>
+                    <li>change the bit to 1/32 drill bit</li>
+                    <li>keep the x min and y min unchanged</li>
+                    <br>
+                    <img src="img/cutout2.png" width="600" class="bord"> 
+                    <br><br>
+                    <b>Soldering the components</b>
+                    <p>
+                    Now the pcb is ready and the next is soldering the components. For soldering, we use soldering station of Weller which is very nice to use.
+                    </p>
+                    I wrote down all the components required in a paper. <br><br>
+                    <li>IC - ATtiny44</li>
+                    <li>Resistors - 1k, 499, 100 x2 , 10k, 0</li>
+                    <li>Capacitor - 10pF x2,1uF  </li>
+                    <li>Diodes - 3.3V x2</li>
+                    <li>Mini USB female pin</li>
+                    <li>6 Pin Connector</li>
+                    <br>
+                    <br>
+                    I started soldering the components according to the circuit diagram.<br>
+                    <img src="img/hello.ISP.44.png" width="200" class="bord"><br>
+            <br>
+                    Finally the hardware part of the ISP is ready.<br>
+                    <br>
+                    <img src="img/myisp.png" class="bord"><br>
+                    <br>
+                    Next is to program the ISP. So we need a programmer.<br> For programming a programmer ,we need another programmer :P <br>
+                    Up to this part, everything was smooth. But we faced some trouble while programming. I downloaded the hex file and make file from the  <a href="http://fab.cba.mit.edu/content/projects/fabisp">http://fab.cba.mit.edu/content/projects/fabisp</a>. When i plugged the isp programmer which is already here in the fablab, the computer detected it as an isp programmer. But when we tried programming , it is shown that" No programmer found". Me and Luciano tried all the way but still the same error. The root cause was we don't know the the exact name and model of the programmer.It was written nowhere on the programmer. Since we were so busy to troubleshoot the problem i forgot to take any screenshot or snap of that error message.<br>
+                    <p>Suddenly i remembered about my asp programmer, i have been using for some years to program atmel chips. It was in my bag itself!!! Thanks god! It is a usbasp type programmer. I took it , plugged to the computer. When i tried to connect it to the Fab isp, ooopz still problem! The connector pin we used in the fabisp is 6 pin, and the connector pin on my programmer is 10 pin type! But no problem, Luciano made some arrangements using some jumber wires and pins which helped us to connect my programmer with the fabisp. And finally it is done. We programmed the fab isp that I made with my progrmmer. After programming I removed the jumber fire which is to be removed from the isp after programming it. Finally the Fab ISP is ready   </p>
+                    
+<br>
+                    <br>
+                    <center><h4><u>Making Wax Mould</u></h4></center>
+                    <br>
+                    <br>
+                    This machine (Rolland MDX20) can also be used for milling wax and hence making moulds in wax. The evening session was about that. Luciano made a small 3d model in Rhino and exported as .stl format. Since i have explained about using fab modules for this machine i am not repeating again. Here all the procedures are same. The bit used is 1/8 inch diameter drill bit , which is commonly used for drilling wax. <br><br>
+                    <a href="https://sketchfab.com/models/357f1c91ab284c52a0fbc65fd6cec091"   >         Here is the model designed by Luciano </a><br>
+                   
+</p>
+
+                    
+                    
+                    
+                    <p>
+                    We opened fab modules. selected input as .stl format and output process as rolland MDX20. Loaded the .stl file. Made path. Set the origin and finally started drilling.</p>
+                    <br>
+                    <br>
+                    <img src="img/wax2.jpg" class="bord">
+                    <br><br>
+                    
+                    <img src="img/wax_mould.png" class="bord">    
+                                            
+                 
               
                     
-                </div>
+                </div> <!-contentday7->
+               
                         
                             
-<!----------------------------------------------------------------------------------------------------------------------->                    <h3 id="day8">Day 8</h3>
+<!----------------------------------------------------------------------------------------------------------------------->                   
+                    <h3 id="day8">Day 8</h3>
                 <div id="content_day8" style="display:none">
-                        Will be updated soon!
-              
+                    <center><h4><u>Moulding</u></h4></center> 
+                    <br>
+                    <p>
+                    We made the wax mould yesterday using modella.What we made yesterday is the shape of the original product. In other words it is the mould for making moulds for the final product. Today we are making the mould for the final product. We want to types of final products(two tpyes of materials), they are Plastic and Babbit (Antimony alloy). So for different materials different moulds should be made. Mould for plastic can't be used for casting metals because it may melt. 
+                    </p>
+    <p>This is the wax mould we used, note that the shape inside the wax mould is the shape of the final mould.<br><br>
+        <img src="img/waxmold2.png" class="bord">
+                    </p>
                     
-                </div>
+            The moulding materials used are : <br>
+                    <img src="img/moulding1.png" width="500" class="bord"><br>
+                    <br>
+                    <b>Making the mould for plastic product</b>
+                    <p>
+                    For making plastic type products, we use the liquid rubber mould. Here we use OOMOO 25. The two solutions are mixed in the ratio specified. To make things easy we calculated on the basis of weight. Since ther is a weighing machine it is easy to calculate on the basis of weight. After mixing, it is poured in to the wax mould. The setting time is around 3 hours. So we kept it there for 3 hours.<br> <br>
+                        <img src="img/mould.jpg" class="bord"><br><br>
+                        <img src="img/mould2.jpg" class="bord"><br><br>
+                        <img src="img/mould3.jpg" class="bord">
+                    </p>
+                    <br> Now the rubber mould is ready.<br>
+                    <br>
+                    <img src="img/rubber_mould.png" width="500" class="bord"><br><br>
+                    Next thing is to make the final product with the rubber mould. Rubber mould is for making plastic products. Here we use the Smooth Cast-305 Liquid Plastic to make our plastic prodcut. We mixed the solutions in the specified ratio as before. Added the color dye for giving required color to the product.Then poured the whole thing in to the rubber mould. And kept it there for setting.<br>
+                    <br>
+                    The final plastic product is:<br>
+                    <img src="img/plastic_pro.png" width="500" class="bord"><br>
+                    But for making metal products, we need another mould with heat resistant material. So for that, we made another mould using the same wax mould. The procedures are same. But the solution used is high temperature silicon. We mixed the solution, and poured to the wax mould.<br>
+                    <br><br>
+                    
+                    <img src="img/metalmould.png" width="500" class="bord">
+                    <br>
+                    <br>
+                    Its setting time is about 24 hours, so we kept it there. Will take it tomorrow and will make the metal product using this mould tommorow.
+                     
+                    
+                    
+                         
+                    
+                </div><!--content 8-->
 
                         
 <!----------------------------------------------------------------------------------------------------------------------->                    <h3 id="day9">Day 9</h3>
                 <div id="content_day9" style="display:none">
-                        Will be updated soon!
-              
+                        
+                    <center><u><h4>3D Printing</h4></u></center>
+              The 3d model we made using Modella machine is by "subtactive" method. That means the machine removes the wax from a wax block exept the final product we need. Since it is removing some portions of a whole block for getting the desired shape, this method is called subtractive method. What we doing in the case of 3D printer is addictive method. At the starting nothing is there, epmty! But the printer add things to make the final product. SO this method is called addictive method.<br>
+                    <p>Luciano asked us to design something that can't be made using subtractive method. I opened rhino. I made a small design , a cup. Next step is to print it using 3d printer.</p>
+                    <br><br>
+                    Here is the design i made:<br>
                     
-                </div>
+                    <iframe width="640" height="480" src="https://sketchfab.com/models/67d38b1bc906486a8f0373b2b2b9afec/embed" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
+
+<p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
+    <a href="https://sketchfab.com/models/67d38b1bc906486a8f0373b2b2b9afec?utm_source=oembed&utm_medium=embed&utm_campaign=67d38b1bc906486a8f0373b2b2b9afec" target="_blank" style="font-weight: bold; color: #1CAAD9;">CUP</a>
+    by <a href="https://sketchfab.com/yadusharon?utm_source=oembed&utm_medium=embed&utm_campaign=67d38b1bc906486a8f0373b2b2b9afec" target="_blank" style="font-weight: bold; color: #1CAAD9;">yadusharon</a>
+    on <a href="https://sketchfab.com?utm_source=oembed&utm_medium=embed&utm_campaign=67d38b1bc906486a8f0373b2b2b9afec" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+</p>
+
+<br>
+                    What i exported from rhino is in .stl format. For printing, 3D printer needs it as g-code. So we use another tool called Cura. I imported the .stl file in to cura. Placed it in the correct positions and gave the filling percentage as 20%. Since it is a small cup 20% is enough.<br>
+                    <br>
+                    <img src="img/cura.png" width="500" class="bord"><br>
+                    Then i saved it in to the SD card and inserted in the 3D printer. The printer we are using is  Ultimaker.There is a small display and a rotary switch on the printer. Using that we can find our file from SD card and we can give print. <br><br>
+                    <img src="img/printcup.png" width="500" class="bord"> <br>
+                                        
+                    
+            <br><br>
+                    The final CUP   <br>
+                    
+                    <img src="img/cup.png" class="bord"><br>
+                    
+                    <br>
+                    <br>
+                    
+                    
+                
+                    
+                    
+                    </div>
                         
                         
                         
@@ -222,12 +412,13 @@ Also see another sticker (my name ) that i designed and pasted on my HDD purse.<
                     </div>
                 </div>
             </div>
-    </div> 
+    
         <!-- /#page-content-wrapper -->
-        <div style="position:fixed; top:0">
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"> --Menu--  </a> </div>
+        <div style="position:fixed; top:0;">
+                        <a style="position:fixed; top:100;" href="#menu-toggle" class="btn btn-default" id="menu-toggle"> --Menu--  </a> </div>
 
     </div>
+    </div>     
     <!-- /#wrapper -->
 
     <!-- jQuery -->
