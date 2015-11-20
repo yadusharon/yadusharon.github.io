@@ -84,15 +84,22 @@
 <!-------------------------------------------------------------------------------------------------------------------------->                          <p>
                 Our project is to make a soldering station using the iron of "Weller" soldering station. This is a group project. Me and Sibu are doing this project together. This idea came  when we saw a soldering station of weller which is out of order. When we checked, we came to know that only iron is okay, and all other parts are damaged. I think it happened because it is plugged in to 230V AC supply where its working voltage is only 120V(I am not shure but it seemed to be so ). So all the internal circuits are burnt.
                         
+                        
                         </p>
+                      
                         Soldering staion works in a feedback system. It keeps the the temperature of the tip as same by measuring the temperature inside the iron using a temperature sensor. So it uses PWM signals for heating the iron whose width changes according to the desired temperature. We explained the block diagrom of soldering station when Luciano asked.<br>
                         <br><center><img src="img/board.png" class="bord"> </center>
                         <br><br>
                         <p>
                         From the iron of the weller soldering station, there are 4 wires coming out. They are<li>2 for 24V power (for heating the tip)</li> <li> 2 from temperature sensor</li> <li>ESD</li> <br>
+                        <br>
+                        <img src="img/conn.JPG" class="bord" width="500"><br><br>
+                                                    <img src="img/wires.JPG" class="bord" width="500">
+                            <br>
+                            <br>
                         The temperature sensor is a k type thermo couple which will give out put voltage in mV according to the temperature. Reading the value from the thermo couple we have to give 24V DCvoltage to the heating coil using PWM. since a micro controller can't read voltage in mV from the thermocouple, we will use an amplifier ciruit and filter circuit for removing noise.<br>
                             So the mian parts are<br>
-                            <li>Micro controller</li> <li>Amplifier (OpAmp)</li> <li>Filter</li><li> Display</li> <li>Mosfet</li> <li>Heater</li>. The block diagrom is drawn on the white board.<br>
+                            <li>Micro controller</li> <li>Amplifier (OpAmp)</li> <li>Filter</li><li> Display</li> <li>Mosfet</li> <li>Heater</li>The block diagrom is drawn on the white board which shown at first.<br>
                             
                             
                         </p><br>
@@ -189,12 +196,16 @@ void loop() {
                         <p>
                         We started desigining using a pen and paper from the basic circuits. By discussing and searching in the internet , we made a design for the amplifier circuit. We used two step aplification , using two opamp. The final design is here <br>
                             <br>
+                            
+                            <img src="img/sch.png"class="bord" width="800"><br>
+                            The values of the components are in the next picture. 
+                        Next is to draw the design in the Eagle for pcb printing. The scematic and the bord diagrams are here :  <br>
+                            <br>
+                              
                         <img src="img/eagle_sch.png" class="bord">
                             
-                            <br>
-                            <br>
                             
-                            Next is to draw the design in the Eagle for pcb printing. The scematic and the bord diagrams are here :<br>
+                            <br>
                             <br>
                             
                             <img src="img/eagle1.png" class="bord" width="500">
@@ -210,7 +221,13 @@ void loop() {
                             <br>
                     <img src="img/traces-fin.png" width="500" class="bord"><br><br>
                             <img src="img/cut&drill-fin.png" width="500" class="bord">
+                        <br>
+                            <br>
+                            <img src="img/propcb1.png" width="500" class="bord"><br>
+                            <br>
+                            <img src="img/propcb2.png" class="bord"> <br><br>
                             
+                            <img src="img/propcb3.png" class="bord">
                             
                         </p>
                         <b><li>Reading analog values</li></b>
@@ -232,9 +249,7 @@ void setup() {
 }
 
 void loop() {
-  // set the cursor to (0,0):
   lcd.setCursor(1, 0);
-  // print from 0 to 9:
    lcd.print("FAB ACADEMY");
    
    
@@ -281,8 +296,141 @@ void loop() {
                         <img src="img/pwm2.png" class="bord" width="500">
                         
                         
+                        <br><br>
+                        <b><h4> Putting all together</h4></b>
+                        <p>Everything were tested sperately and next is putting all these together.
+                        This process also has many steps. First thing we tried is taking the value from the thermo couple using the amplifier and showing the temperature on the LCD. We used a function for getting the temperature from the amplifier reading. The amplifier gives a reading. From this reading we calculate the temperature. This function is already available from the thermocouple datasheet. But this function was a 9th degree polynomial. That means it needs 8 calibration points and at present it is not possible. Since the graph of the thermocouple (Temp Vs voltage) is almost linear we tried with one caliberation point.
+                            
+                            
+                            
+                        </p>
+                        The problem with calibaration is we dont have a thermometer to detect the temperature on the iron. But we can measure one Temperature point, which is 100 degree celcius!! How ?? here is the funny thing comes, the water boils at 100 celcius. Cool..!!!
+                        We put the tip of the iron in the water and waited till it boils. When it boils, it means the tip is at 100 celcius.
+
+<br>
+                        <br>
+                        <img src="img/cali1.png" class="bord">
+                        <br><br>
                         
-                        
+                        <img src="img/cali2.png" class="bord">
+                             
+                        The code for the above process is here<br>
+                        <pre><code>
+                        #include <LiquidCrystal.h>
+
+
+LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
+int rawin =0;
+float  temp=0.0;
+void setup() {
+  
+  lcd.begin(16,2);
+  
+  
+}
+
+void loop() {
+  // set the cursor to (0,0):
+  lcd.setCursor(1, 0);
+ 
+   lcd.print("Temp in Celsius");
+   
+ 
+
+   rawin = analogRead(A0);
+   temp = rawin*0.22+20.0;
+   
+   
+   delay(1);
+   lcd.setCursor(1,1);
+   lcd.print(temp);
+   delay(100);
+   
+ 
+
+}
+                        </code></pre>
+                        <br>
+<b>                        The interupt Switches</b><br>
+
+
+For adjusting the temperature we need two switches. Since the main loop in the code will be always busy with maintaing the given reference temperature. So taking input values we need Interupts. Since the default interupts pins are used (not for interupt, for lcd) we used PCInt pins. So we tried a sample program to change the pwm width using the interupt pins. The code is below<br>
+<br>
+<pre><code>
+#include <LiquidCrystal.h>
+#include <PinChangeInt.h>
+int a =20, b=0;
+
+
+void quicfunc0() {
+  a++;
+  delay(500);
+};
+
+void quicfunc1() {
+  a--;
+  delay(500);
+};
+
+
+
+ LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
+
+ 
+ 
+ 
+void setup() {   
+
+  pinMode(A3, INPUT_PULLUP);
+  attachPinChangeInterrupt(A3, quicfunc0, FALLING);  
+   
+  pinMode(A4, INPUT_PULLUP);
+  attachPinChangeInterrupt(A4, quicfunc1, FALLING); 
+  pinMode(9,OUTPUT);
+  lcd.begin(16,2);
+ 
+  TCCR1A = _BV(COM1A1) | _BV(WGM11) ;
+  TCCR1B = _BV(CS11) | _BV(CS10) | _BV(WGM12) | _BV(WGM13);
+  ICR1=1000;
+  lcd.setCursor(1,0);
+  lcd.print("Hello world");
+  delay(3000);
+  lcd.clear();
+  
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+    
+  
+  
+  
+   b= a*10 ;
+   
+             
+  lcd.setCursor(1,0);
+  lcd.print(a);
+  OCR1A = b;
+  lcd.setCursor(1,1);
+  lcd.print(OCR1A);
+} 
+
+
+
+</code></pre>
+
+
+In the LCD there will be two readings. One is a (just a number which will varry according to the switch press), and the corresponding OCR1A value for the pwm.
+
+<b> The Algorithm</b> <br>
+The most important part. We are planning to use a P/PD algorithm. We have just wrote the algorithm on the board.<br>
+<br>
+<img src="img/algo.png" class="bord">
+<br>
+Sorry that it is not very clear to read, the color we used was wrong. But it is possible. Another thing , we both have bad handwriting !!
+
+Next is the final code!
+
                         
 <!----------------------------------------------------------------------------------------------------------------------------->
                     </div>

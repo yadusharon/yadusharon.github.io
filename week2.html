@@ -60,7 +60,13 @@
                 </li>
                 <li>
                     <a href="week4.html">Week 4</a>
-                </li><br>
+                </li>
+                <li>
+                    <a href="project.html">Project</a>
+                </li>        
+                    
+                    
+                    <br>
                 
                 <li>
                     <a href="abtme.html">About Me</a>
@@ -354,7 +360,9 @@ Before clicking the "make .rml"  we need to set up the machine.<br><br>
                 <div id="content_day9" style="display:none">
                         
                     <center><u><h4>3D Printing</h4></u></center>
-              The 3d model we made using Modella machine is by "subtactive" method. That means the machine removes the wax from a wax block exept the final product we need. Since it is removing some portions of a whole block for getting the desired shape, this method is called subtractive method. What we doing in the case of 3D printer is addictive method. At the starting nothing is there, epmty! But the printer add things to make the final product. SO this method is called addictive method.<br>
+              The 3d model we made using Modella machine is by "subtactive" method. That means the machine removes the wax from a wax block exept the final product we need. Since it is removing some portions of a whole block for getting the desired shape, this method is called subtractive method. What we doing in the case of 3D printer is addictive method. At the starting nothing is there, epmty! But the printer add things to make the final product. SO this method is called addictive method.<br><br>
+                    The main steps for 3D printing are below<br><img src="img/step_3d_printer.jpg" class="bord">
+                    
                     <p>Luciano asked us to design something that can't be made using subtractive method. I opened rhino. I made a small design , a cup. Next step is to print it using 3d printer.</p>
                     <br><br>
                     Here is the design i made:<br>
@@ -396,8 +404,29 @@ Before clicking the "make .rml"  we need to set up the machine.<br><br>
                         
 <!----------------------------------------------------------------------------------------------------------------------->                    <h3 id="day10">Day 10</h3>
                 <div id="content_day10" style="display:none">
-                        Will be updated soon!
-              
+                    <center><b>The Shopbot</b></center>
+
+                    Shopbot is the biggest and also most dangerous machine in the lab. Shopbot is a CNC that can be used for cuttin woods, acrylic etc. It can cut both 2d and 3D models. For example it can cut plywoods , and also the it can make dips or channels on plywood. Like a 3d printer it also have 3 steps. <br>
+                    <li>Making the design and exporting as .dxf file</li>
+                    <li>Making path in  Vcarve tool</li>
+                    <li>cutting using shopbot</li>
+                    
+                    Luciano first explained us about shopbot, the bit used, the way of cutting etc. It can cut along a path, it can drill at a point, also it can make pockets.<br>
+                    <br>
+                    <img src="img/shop1.png" class="bord"><br>
+                    For drilling, it is all aobut the depth and the tool. That means which bit is we using (it determines the diameter of the hole ) and up to what depth we are drilling. Only two factors. If it is a profile -cut along a path or curve- then there three things which are to be taken in to account. The tool, the depth and the side. Side means whether the bit should go along the curve, or inside the curve or outside the curve. Suppose we want to cut a disc with 10cm diameter. If we want it exact 10cm , then the bit should run outside of the circle otherwise the diameter of disc will be less than the designed  by diameter of bit. For a pocket there are only two things like a drill, depth and tool. <br>
+                    When we come to bits, there are several things. The flutes (Number of flutes will varry), the diameter, and the shape(whether it is v shaped, or flat, or ball typed etc). it is clear from thr picture above (which is actually drawn by Luciano)<br>
+                    <br>
+                    <p>As i told before, for cutting a wood or something the first thing we need is design. Luciano has designed a pocket and a profile. So we have the design. Since we are doing this experement together (not individually) i couldn't take screenshot of any. I was busy with litsening Luciano, and we should be much carefull than using any other machine. The design should be in .dxf format. So next step is to make the path file using Vcarve tool. I thhink We dont have fab modules for shopbot rightnow,we are using windows OS anyway. 
+In Vcarve there is option for slecting bits, giving depth , selecting profile, drill, pockets etc. Once you set up everything we can save the path as a file.                   </p>
+                    Next is to open shopbot software. Using the shopbot software, we can move the machine head manually. We have to set the origin in X,Y and Z axes. The longest axes is the X and other is the Y of shopbot. Then we load the path file we saved from Vcarve. There is a green button to start shopbot, press it. And give start in the shopbot software. Then it will start cutting.
+                    
+                    <br>
+                    <br>
+                    See the pocket: <br>
+                    <img src="img/pocket.png" class="bord" width="500">
+                    
+                    
                     
                 </div>
                         
